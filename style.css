@@ -1,52 +1,161 @@
-body {
-    font-family: Arial, sans-serif;
+/* Общие настройки */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    box-sizing: border-box;
 }
 
-header {
-    background-color: #333;
-    padding: 10px;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-}
-
+/* Шапка с размытым фоном */
 .hero {
-    text-align: center;
-    padding: 50px;
-    background: linear-gradient(to right, #4CAF50, #2196F3);
-    color: white;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('https://source.unsplash.com/1600x900/?nature,code') no-repeat center center/cover;
+    position: relative;
 }
 
-.about, .projects, .contact {
-    padding: 20px;
-    max-width: 800px;
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3); /* затемнение */
+}
+
+.hero-content {
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Основной контент */
+main {
+    padding: 2rem 1rem;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.project-card {
-    background: white;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.container {
+    display: grid;
+    gap: 2rem;
 }
 
+/* Карточки */
+.card {
+    background: rgba(255, 255, 255, 0.9); /* полупрозрачный фон */
+    backdrop-filter: blur(10px); /* размытие */
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    color: #4a5568;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 0.5rem;
+}
+
+.card p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.card li {
+    background: #f7fafc;
+    padding: 0.5rem 1rem;
+    margin: 0.25rem 0;
+    border-radius: 5px;
+    border-left: 3px solid #667eea;
+}
+
+/* Проекты */
+.project-item {
+    background: #f7fafc;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    border-left: 4px solid #48bb78;
+}
+
+.project-item h3 {
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.project-item a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project-item a:hover {
+    text-decoration: underline;
+}
+
+/* Контакты */
+.card a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+/* Футер */
 footer {
-    background: #333;
-    color: white;
     text-align: center;
-    padding: 10px;
-    margin-top: 20px;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    margin-top: 2rem;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
 }
