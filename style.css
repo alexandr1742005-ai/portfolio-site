@@ -5,22 +5,23 @@
     box-sizing: border-box;
 }
 
+/* Чёрно-серый фон */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #ffffff 0%, #e0eafc 100%); /* светлый градиент */
+    background: linear-gradient(135deg, #000000 0%, #2d3748 50%, #4a5568 100%); /* чёрный → серый */
     min-height: 100vh;
-    color: #333;
+    color: white; /* белый текст */
     padding: 1rem;
 }
 
-/* Шапка (светлая) */
+/* Шапка (тоже с градиентом) */
 .hero {
-    background: linear-gradient(to bottom, #ffffff 0%, #e0eafc 100%); /* светлый градиент как у сайта */
+    background: linear-gradient(to bottom, #000000 0%, #2d3748 100%);
     text-align: center;
     padding: 3rem 1rem;
     border-radius: 15px;
     margin-bottom: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .hero h1 {
@@ -50,22 +51,23 @@ body {
     margin: 0 auto;
 }
 
-/* Карточки */
+/* Карточки (белые с тенью) */
 .card {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     padding: 2rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #333; /* чёрный текст в карточках */
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* Заголовки с градиентом */
+/* Заголовки в карточках */
 .card h2 {
     color: #4a5568;
     margin-bottom: 1rem;
