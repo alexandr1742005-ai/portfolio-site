@@ -266,8 +266,8 @@
                     return;
                 }
 
-                // Рисуем фон — зелёная трава
-                ctx.fillStyle = '#4CAF50'; // зелёный
+                // Чёрный фон
+                ctx.fillStyle = '#000'; // чёрный
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
                 // Рисуем тело змейки как плавную линию
@@ -275,21 +275,21 @@
                 ctx.lineJoin = 'round';
                 ctx.lineCap = 'round';
 
-                // Цвет змейки — золотой
-                ctx.strokeStyle = '#FFD700'; // золото
-                ctx.fillStyle = '#FFD700';
+                // Цвет змейки — зелёный
+ctx.strokeStyle = '#4ade80'; // ярко-зелёный
+ctx.fillStyle = '#4ade80';
 
-                ctx.beginPath();
-                ctx.moveTo(snake[0].x * gridSize + gridSize / 2, snake[0].y * gridSize + gridSize / 2);
+ctx.beginPath();
+ctx.moveTo(snake[0].x * gridSize + gridSize / 2, snake[0].y * gridSize + gridSize / 2);
 
-                for (let i = 1; i < snake.length; i++) {
-                    const segment = snake[i];
-                    const centerX = segment.x * gridSize + gridSize / 2;
-                    const centerY = segment.y * gridSize + gridSize / 2;
-                    ctx.lineTo(centerX, centerY);
-                }
+for (let i = 1; i < snake.length; i++) {
+    const segment = snake[i];
+    const centerX = segment.x * gridSize + gridSize / 2;
+    const centerY = segment.y * gridSize + gridSize / 2;
+    ctx.lineTo(centerX, centerY);
+}
 
-                ctx.stroke();
+ctx.stroke();
 
                 // Рисуем голову
                 const head = snake[0];
@@ -396,74 +396,19 @@
             }
         }
 
-        function drawFood() {
-            try {
-                console.log('Рисуем еду:', food);
+       // Яблоко как яблоко
+function drawFood() {
+    // Рисуем яблоко как круг с "хвостиком"
+    ctx.fillStyle = '#ef4444'; // красное яблоко
+    ctx.beginPath();
+    ctx.arc(food.x + gridSize/2, food.y + gridSize/2, gridSize/2, 0, Math.PI * 2);
+    ctx.fill();
 
-                if (!food) {
-                    console.warn('Еда не определена!');
-                    return;
-                }
+    // "Хвостик" яблока
+    ctx.fillStyle = '#78350f'; // коричневый
+    ctx.fillRect(food.x + gridSize/2 - 2, food.y, 4, 6);
+}
 
-                // Рисуем яблоко
-                const centerX = food.x * gridSize + gridSize / 2;
-                const centerY = food.y * gridSize + gridSize / 2;
-
-                // Красное яблоко
-                ctx.fillStyle = 'red';
-                ctx.beginPath();
-                ctx.arc(
-                    centerX,
-                    centerY,
-                    gridSize / 2,
-                    0,
-                    Math.PI * 2
-                );
-                ctx.fill();
-
-                // Белые точки
-                ctx.fillStyle = 'white';
-                ctx.beginPath();
-                ctx.arc(
-                    centerX - gridSize / 4,
-                    centerY - gridSize / 4,
-                    gridSize / 8,
-                    0,
-                    Math.PI * 2
-                );
-                ctx.fill();
-
-                ctx.beginPath();
-                ctx.arc(
-                    centerX + gridSize / 4,
-                    centerY - gridSize / 4,
-                    gridSize / 8,
-                    0,
-                    Math.PI * 2
-                );
-                ctx.fill();
-
-                ctx.beginPath();
-                ctx.arc(
-                    centerX,
-                    centerY + gridSize / 4,
-                    gridSize / 8,
-                    0,
-                    Math.PI * 2
-                );
-                ctx.fill();
-
-                // Стебелёк
-                ctx.strokeStyle = '#8B4513'; // коричневый
-                ctx.lineWidth = 2;
-                ctx.beginPath();
-                ctx.moveTo(centerX, centerY - gridSize / 2);
-                ctx.lineTo(centerX + gridSize / 6, centerY - gridSize / 2 - gridSize / 4);
-                ctx.stroke();
-            } catch (e) {
-                console.error('Ошибка при рисовании еды:', e);
-            }
-        }
 
         function moveSnake() {
             if (!gameActive) return;
@@ -630,3 +575,4 @@
     </script>
 </body>
 </html>
+
