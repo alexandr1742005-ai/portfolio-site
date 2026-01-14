@@ -8,34 +8,32 @@
 /* Чёрно-серый фон */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #000000 0%, #2d3748 50%, #4a5568 100%); /* чёрный → серый */
+    background: linear-gradient(135deg, #000000 0%, #2d3748 50%, #4a5568 100%);
     min-height: 100vh;
     color: white;
     padding: 1rem;
 }
 
-/* Шапка (тоже с градиентом) */
-.hero {
-    background: linear-gradient(to bottom, #000000 0%, #2d3748 100%);
-    text-align: center;
+/* Главный блок с двумя колонками */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 3rem 1rem;
     border-radius: 15px;
     margin-bottom: 2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    /* Появление шапки */
-    opacity: 0;
-    transform: translateY(-20px);
-    animation: fadeInDown 0.8s ease forwards;
+    background: linear-gradient(to bottom, #000000 0%, #2d3748 100%);
 }
 
-@keyframes fadeInDown {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Левая колонка: текст */
+.hero-text {
+    flex: 1;
+    max-width: 50%;
+    text-align: left;
 }
 
-.hero h1 {
+.hero-text h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
     font-weight: bold;
@@ -46,7 +44,7 @@ body {
     color: transparent;
 }
 
-.hero p {
+.hero-text p {
     font-size: 1.5rem;
     font-weight: 500;
     /* Градиентный текст: светлый → тёмный */
@@ -56,44 +54,54 @@ body {
     color: transparent;
 }
 
+/* Правая колонка: изображение */
+.hero-image {
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Навигация */
+nav a {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
 /* Основной контент */
 .container {
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* Карточки (белые с тенью) */
+/* Карточки */
 .card {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     padding: 2rem;
     margin-bottom: 1.5rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    color: #333; /* чёрный текст в карточках */
-    /* Появление карточек */
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards;
-    animation-delay: calc(var(--delay) * 0.1s); /* разная задержка для каждой карточки */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #333;
 }
 
-/* Номера задержек для карточек */
-.card:nth-child(1) { --delay: 0; }
-.card:nth-child(2) { --delay: 1; }
-.card:nth-child(3) { --delay: 2; }
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Плавное наведение */
 .card:hover {
-    transform: translateY(-5px) scale(1.02); /* поднятие + увеличение */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); /* тень при наведении */
-    transition: all 0.3s ease; /* плавность */
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* Заголовки в карточках */
@@ -180,19 +188,26 @@ footer {
     margin-top: 2rem;
     border-radius: 10px;
     font-size: 1.1rem;
-    /* Появление футера */
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease 0.4s forwards; /* задержка для футера */
 }
 
 /* Адаптив */
 @media (max-width: 768px) {
-    .hero h1 {
+    .hero-section {
+        flex-direction: column;
+        padding: 2rem 1rem;
+    }
+
+    .hero-text,
+    .hero-image {
+        max-width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .hero-text h1 {
         font-size: 2rem;
     }
 
-    .hero p {
+    .hero-text p {
         font-size: 1.2rem;
     }
 
