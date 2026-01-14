@@ -94,20 +94,20 @@ nav a:hover {
     margin: 0 auto;
 }
 
-/* Карточки */
+/* Карточки (в стиле шапки) */
 .card {
-    background: rgba(255, 255, 255, 0.95);
+    background: linear-gradient(to bottom, #000000 0%, #2d3748 100%);
     border-radius: 15px;
     padding: 2rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: #333;
+    color: white;
 }
 
 .card:hover {
     transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
 }
 
 /* Заголовки в карточках */
@@ -125,30 +125,34 @@ nav a:hover {
     padding-bottom: 0.5rem;
 }
 
+/* Текст внутри карточек */
 .card p {
     margin-bottom: 1rem;
     font-size: 1.2rem;
     line-height: 1.6;
+    color: #e2e8f0;
 }
 
+/* Список навыков */
 .card ul {
     list-style: none;
     padding-left: 0;
 }
 
 .card li {
-    background: #f7fafc;
+    background: rgba(255, 255, 255, 0.1);
     padding: 0.75rem 1.25rem;
     margin: 0.25rem 0;
     border-radius: 8px;
     border-left: 4px solid #667eea;
     font-size: 1.1rem;
     font-weight: 500;
+    color: white;
 }
 
 /* Проекты */
 .project-item {
-    background: #f7fafc;
+    background: rgba(255, 255, 255, 0.1);
     padding: 1.25rem;
     margin: 1rem 0;
     border-radius: 8px;
@@ -160,6 +164,11 @@ nav a:hover {
     margin-bottom: 0.5rem;
     font-size: 1.4rem;
     font-weight: bold;
+    /* Градиентный текст */
+    background: linear-gradient(to bottom, #ffffff 0%, #2d3748 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .project-item a {
