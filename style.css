@@ -161,7 +161,7 @@ nav a:hover {
     padding: 1.25rem;
     margin: 1rem 0;
     border-radius: 8px;
-    border-left: 4px solid #48bb78;
+    border-left: 4px solid #000; /* Чёрный цвет */
 }
 
 .project-item h3 {
@@ -324,6 +324,18 @@ nav a:hover {
     flex: 1;
 }
 
+/* Цвет ссылки в контактах */
+.contacts-content a {
+    color: #667eea; /* Синий цвет — хорошо виден */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.contacts-content a:hover {
+    text-decoration: underline;
+}
+
 /* Футер */
 footer {
     text-align: center;
@@ -401,6 +413,3 @@ footer {
         text-align: left; /* На мобильных устройствах выравниваем слева */
     }
 }
-
-
-
