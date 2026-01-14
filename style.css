@@ -1,3 +1,19 @@
+/* Общие настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Чёрно-серый фон */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #000000 0%, #2d3748 50%, #4a5568 100%);
+    min-height: 100vh;
+    color: white;
+    padding: 1rem;
+}
+
 /* Главный блок с двумя колонками */
 .hero-section {
     display: flex;
@@ -53,4 +69,162 @@
     max-width: 450px; /* Уменьшаем размер картинки */
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Навигация */
+nav {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+nav a {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Основной контент */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Карточки */
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #333;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Заголовки в карточках */
+.card h2 {
+    color: #4a5568;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #ffffff 0%, #4a5568 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 0.5rem;
+}
+
+.card p {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.card li {
+    background: #f7fafc;
+    padding: 0.75rem 1.25rem;
+    margin: 0.25rem 0;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Проекты */
+.project-item {
+    background: #f7fafc;
+    padding: 1.25rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    border-left: 4px solid #48bb78;
+}
+
+.project-item h3 {
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.project-item a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.project-item a:hover {
+    text-decoration: underline;
+}
+
+/* Контакты */
+.contact a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* Футер */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: #333;
+    color: white;
+    margin-top: 2rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        padding: 2rem 1rem;
+    }
+
+    .hero-text,
+    .hero-image {
+        max-width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1.2rem;
+    }
+
+    .card h2 {
+        font-size: 1.6rem;
+    }
+
+    .card p {
+        font-size: 1rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
 }
