@@ -3,24 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мои проекты — Александр</title>
+    <title>Мои проекты — Styssie.developer</title>
+    <meta name="description" content="Проекты: Змейка Styssie Game, PWA Приложение. Python, Flask, HTML, CSS, JS.">
+    <meta name="keywords" content="Python, Flask, игры, приложения, разработка, PWA, SQL">
+    <meta name="author" content="Александр">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Мои проекты</h1>
-    </header>
+    <!-- Главный блок с двумя колонками -->
+    <section class="hero-section">
+        <!-- Левая колонка: текст -->
+        <div class="hero-text">
+            <h1>Styssie.developer</h1>
+            <p>Python, Flask, HTML, CSS, JS.</p>
+        </div>
+
+        <!-- Правая колонка: изображение -->
+        <div class="hero-image">
+            <img src="images/coding.jpg" alt="Кодинг на ноутбуке">
+        </div>
+    </section>
+
+    <!-- Навигация -->
+    <nav style="text-align: center; margin: 1rem 0;">
+        <a href="about.html" style="margin: 0 1rem; color: white; text-decoration: none;">Обо мне</a>
+        <a href="projects.html" style="margin: 0 1rem; color: white; text-decoration: none;">Проекты</a>
+        <a href="contact.html" style="margin: 0 1rem; color: white; text-decoration: none;">Контакты</a>
+    </nav>
+
     <main>
-        <div class="project">
-            <h2>Змейка Styssie Game</h2>
-            <p>Классическая змейка с квестами, скинами и таблицей лидеров</p>
-            <a href="snake-game">Играть</a>
-        </div>
-        <div class="project">
-            <h2>PWA Приложение</h2>
-            <p>Мобильная версия змейки</p>
-            <a href="#">Смотреть</a>
-        </div>
+        <section class="container">
+            <!-- Карточка "Мои проекты" -->
+            <div class="card">
+                <div class="projects-section">
+                    <h2><span class="typewriter">Мои проекты</span></h2>
+                    <div class="projects-content">
+                        <div class="project-item">
+                            <h3>Змейка Styssie Game</h3>
+                            <p>Классическая змейка с квестами, скинами и таблицей лидеров</p>
+                            <a href="./snake-game">Играть в змейку</a>
+                        </div>
+                        <div class="project-item">
+                            <h3>PWA Приложение</h3>
+                            <p>Мобильная версия змейки</p>
+                            <a href="#">Смотреть</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <p>&copy; 2026 Александр. Все права защищены.</p>
+    </footer>
 </body>
 </html>
