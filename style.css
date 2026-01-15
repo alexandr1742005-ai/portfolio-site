@@ -73,19 +73,27 @@ body {
 
 /* Навигация */
 nav {
+    background: #1a202c;
+    padding: 1rem 0;
     text-align: center;
-    margin: 1rem 0;
 }
 
 nav a {
-    margin: 0 1rem;
     color: white;
+    margin: 0 1.5rem;
     text-decoration: none;
     font-weight: bold;
+    font-size: 1.3rem; /* Увеличенный размер */
+    letter-spacing: 0.5px; /* Легкий интервал между буквами */
+    transition: all 0.3s ease;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    color: #667eea;
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
 }
 
 /* Основной контейнер */
@@ -556,4 +564,5 @@ footer {
     background: #333;
     color: white;
 }
+
 
