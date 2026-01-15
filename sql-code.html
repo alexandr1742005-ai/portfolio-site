@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL-код — Styssie.developer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Главный блок с двумя колонками -->
+    <section class="hero-section">
+        <!-- Левая колонка: текст -->
+        <div class="hero-text">
+            <h1>Styssie.developer</h1>
+            <p>Python, Flask, HTML, CSS, JS.</p>
+        </div>
+
+        <!-- Правая колонка: изображение -->
+        <div class="hero-image">
+            <img src="images/coding-laptop.jpg" alt="Кодинг на ноутбуке">
+        </div>
+    </section>
+
+    <!-- Навигация -->
+    <nav style="text-align: center; margin: 1rem 0;">
+        <a href="index.html" style="margin: 0 1rem; color: white; text-decoration: none;">Главная</a>
+        <a href="about.html" style="margin: 0 1rem; color: white; text-decoration: none;">Обо мне</a>
+        <a href="projects.html" style="margin: 0 1rem; color: white; text-decoration: none;">Проекты</a>
+        <a href="contact.html" style="margin: 0 1rem; color: white; text-decoration: none;">Контакты</a>
+    </nav>
+
+    <main>
+        <section class="container">
+            <div class="card">
+                <h2>SQL-код из курсача</h2>
+                <pre><code>
+-- Таблица пользователей
+CREATE TABLE Users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  role VARCHAR(20) NOT NULL CHECK (role IN ('user', 'admin', 'moderator', 'politich')),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Таблица новостей (основная сущность)
+CREATE TABLE News (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER NOT NULL REFERENCES Users(id) ON DELETE SET NULL,
+  title VARCHAR(255) NOT NULL,
+  content TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Таблица комментариев к новостям
+CREATE TABLE News_comments (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL REFERENCES Users(id) ON DELETE CASCADE,
+    news_id INTEGER NOT NULL REFERENCES News(id) ON DELETE CASCADE,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Таблица лайков к новостям (слабая сущность)
+CREATE TABLE News_likes (
+    user_id INTEGER NOT NULL REFERENCES Users(id) ON DELETE CASCADE,
+    news_id INTEGER NOT NULL REFERENCES News(id) ON DELETE CASCADE,
+    PRIMARY KEY (user_id, news_id)
+);
+
+-- Таблица обращений
+CREATE TABLE Appeals (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL REFERENCES Users(id) ON DELETE CASCADE,
+    news_comment_id INTEGER REFERENCES News_comments(id) ON DELETE SET NULL,
+    liked_news_id INTEGER REFERENCES News(id) ON DELETE SET NULL,
+    topic VARCHAR(200) NOT NULL,
+    content TEXT NOT NULL,
+    appeal_type VARCHAR(20) DEFAULT 'general' CHECK (appeal_type IN ('general', 'comment_issue', 'like_issue', 'spam_report')),
+    status VARCHAR(20) DEFAULT 'new' CHECK (status IN ('new', 'in_progress', 'resolved', 'closed')),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Таблица ответов на обращения
+CREATE TABLE Replies (
+  id SERIAL PRIMARY KEY,
+  appeal_id INTEGER NOT NULL REFERENCES Appeals(id) ON DELETE CASCADE,
+  user_id INTEGER NOT NULL REFERENCES Users(id) ON DELETE CASCADE,
+  content TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+                </code></pre>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Александр. Все права защищены.</p>
+    </footer>
+
+    <!-- Кнопка "Вернуться на главную" -->
+    <div style="text-align: center; margin-top: 2rem;">
+        <a href="index.html" style="color: #667eea; text-decoration: none; font-weight: bold; font-size: 1.2rem;">← Вернуться на главную</a>
+    </div>
+</body>
+</html>
