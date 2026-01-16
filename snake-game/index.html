@@ -219,22 +219,21 @@
 
         // Функция сброса игры
         function resetGame() {
-            function resetGame() {
-    // Начальная позиция — центр
-    snake = [
-        {x: 10, y: 10}
-    ];
-    // Генерируем еду только если игра активна
-    if (gameActive) {
-        generateFood();
-    }
-    dx = 0;
-    dy = 0;
-    score = 0;
-    newRecordShown = false;
-    document.getElementById('score').textContent = 'Счёт: 0';
-    document.getElementById('newRecord').style.display = 'none';
-}
+            // Начальная позиция — центр
+            snake = [
+                {x: 10, y: 10}
+            ];
+            // Генерируем еду только если игра активна
+            if (gameActive) {
+                generateFood();
+            }
+            dx = 0;
+            dy = 0;
+            score = 0;
+            newRecordShown = false;
+            document.getElementById('score').textContent = 'Счёт: 0';
+            document.getElementById('newRecord').style.display = 'none';
+        }
 
         // Генерируем еду в свободной клетке
         function generateFood() {
@@ -416,52 +415,53 @@
             ctx.fillRect(centerX - 2, food.y * gridSize, 4, 6);
         }
 
-function moveSnake() {
-    if (!gameActive) return;
+        function moveSnake() {
+            if (!gameActive) return;
 
-    let head = {x: snake[0].x + dx, y: snake[0].y + dy};
+            let head = {x: snake[0].x + dx, y: snake[0].y + dy};
 
-    // Прохождение сквозь стены
-    if (head.x < 0) head.x = tileCount - 1;           // Слева → справа
-    else if (head.x >= tileCount) head.x = 0;         // Справа → слева
-    if (head.y < 0) head.y = tileCount - 1;          // Сверху → снизу
-    else if (head.y >= tileCount) head.y = 0;        // Снизу → сверху
+            // Прохождение сквозь стены
+            if (head.x < 0) head.x = tileCount - 1;           // Слева → справа
+            else if (head.x >= tileCount) head.x = 0;         // Справа → слева
+            if (head.y < 0) head.y = tileCount - 1;          // Сверху → снизу
+            else if (head.y >= tileCount) head.y = 0;        // Снизу → сверху
 
-    // Проверка столкновения с собой (после прохождения через стену)
-    for (let i = 0; i < snake.length; i++) {
-        if (snake[i].x === head.x && snake[i].y === head.y) {
-            gameOver();
-            return;
-        }
-    }
-
-    snake.unshift(head);
-
-    // Если съели еду
-    if (head.x === food.x && head.y === food.y) {
-        score++;
-        document.getElementById('score').textContent = 'Счёт: ' + score;
-
-        // Проверяем рекорд
-        if (score > bestScore) {
-            bestScore = score;
-            document.getElementById('bestScore').textContent = 'Рекорд: ' + bestScore;
-            saveBestScore();
-            if (!newRecordShown) {
-                document.getElementById('newRecord').style.display = 'block';
-                newRecordShown = true;
+            // Проверка столкновения с собой (после прохождения через стену)
+            for (let i = 0; i < snake.length; i++) {
+                if (snake[i].x === head.x && snake[i].y === head.y) {
+                    gameOver();
+                    return;
+                }
             }
 
-            // Создаём новую еду
-            generateFood();
-            // Не удаляем хвост, если съели еду
-        } else {
-            snake.pop(); // Удаляем хвост, если не съели еду
+            snake.unshift(head);
+
+            // Если съели еду
+            if (head.x === food.x && head.y === food.y) {
+                score++;
+                document.getElementById('score').textContent = 'Счёт: ' + score;
+
+                // Проверяем рекорд
+                if (score > bestScore) {
+                    bestScore = score;
+                    document.getElementById('bestScore').textContent = 'Рекорд: ' + bestScore;
+                    saveBestScore();
+                    if (!newRecordShown) {
+                        document.getElementById('newRecord').style.display = 'block';
+                        newRecordShown = true;
+                    }
+
+                    // Создаём новую еду
+                    generateFood();
+                    // Не удаляем хвост, если съели еду
+                } else {
+                    snake.pop(); // Удаляем хвост, если не съели еду
+                }
+            } else {
+                snake.pop(); // Удаляем хвост, если не съели еду
+            }
         }
-    } else {
-        snake.pop(); // Удаляем хвост, если не съели еду
-    }
-}
+
         function gameLoop(currentTime) {
             window.requestAnimationFrame(gameLoop);
 
@@ -481,13 +481,13 @@ function moveSnake() {
         }
 
         function gameOver() {
-    gameActive = false;
-    setTimeout(() => {
-        resetGame(); // Сразу сброс игры
-        gameActive = true; // Возобновляем игру
-        window.requestAnimationFrame(gameLoop); // Запускаем цикл снова
-    }, 100);
-}
+            gameActive = false;
+            setTimeout(() => {
+                resetGame(); // Сразу сброс игры
+                gameActive = true; // Возобновляем игру
+                window.requestAnimationFrame(gameLoop); // Запускаем цикл снова
+            }, 100);
+        }
 
         document.addEventListener('keydown', e => {
             if (!gameActive) return; // Игнорируем, если игра не активна
@@ -584,6 +584,3 @@ function moveSnake() {
     </script>
 </body>
 </html>
-
-
-
