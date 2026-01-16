@@ -272,6 +272,16 @@ nav a:hover {
     font-weight: 500;
     color: white;
 }
+/* Цвет ссылки "Подробнее" */
+.about-content a {
+    color: #667eea !important; 
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.about-content a:hover {
+    text-decoration: underline;
+}
 
 /* Стиль для карточки "Мои проекты" */
 .projects-section {
@@ -504,3 +514,4 @@ footer {
     margin-top: 1rem;
     text-align: center;
 }
+
