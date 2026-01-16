@@ -358,7 +358,6 @@ footer {
 /* Адаптив */
 @media (max-width: 768px) {
     .hero-section {
-        flex-direction: column;
         padding: 2rem 1rem;
     }
 
@@ -473,4 +472,5 @@ footer {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
 
