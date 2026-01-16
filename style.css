@@ -129,10 +129,8 @@ nav a:hover {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* Заголовки в карточках */
+/* Заголовки в карточках — как у "Обо мне" */
 .card h2 {
-    color: #4a5568;
-    margin-bottom: 1rem;
     font-size: 2rem;
     font-weight: bold;
     background: linear-gradient(to bottom, #ffffff 0%, #4a5568 100%);
@@ -141,6 +139,13 @@ nav a:hover {
     color: transparent;
     border-bottom: 3px solid #667eea;
     padding-bottom: 0.5rem;
+    margin: 0;
+    min-width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
 }
 
 /* Текст внутри карточек */
@@ -220,7 +225,7 @@ nav a:hover {
     flex-direction: column; /* Делаем колонкой */
     height: 100%; /* Занимает всю высоту */
 }
-
+/*
 .about-section h2 {
     font-size: 2rem;
     font-weight: bold;
@@ -233,6 +238,7 @@ nav a:hover {
     margin: 0;
     width: 100%; /* Занимает всю ширину */
 }
+*/
 
 .about-content {
     flex: 1; /* Занимает всё оставшееся место */
@@ -290,7 +296,7 @@ nav a:hover {
     gap: 2rem;
     padding: 1rem;
 }
-
+/*
 .projects-section h2 {
     font-size: 2rem;
     font-weight: bold;
@@ -307,7 +313,7 @@ nav a:hover {
     align-items: center;
     height: 100%;
 }
-
+*/
 .projects-content {
     flex: 1;
 }
@@ -320,6 +326,7 @@ nav a:hover {
     padding: 1rem;
 }
 
+/*
 .contacts-section h2 {
     font-size: 2rem;
     font-weight: bold;
@@ -336,7 +343,7 @@ nav a:hover {
     align-items: center;
     height: 100%;
 }
-
+*/
 .contacts-content {
     flex: 1;
 }
@@ -525,3 +532,4 @@ footer {
 .projects-content a:hover {
     text-decoration: underline;
 }
+
