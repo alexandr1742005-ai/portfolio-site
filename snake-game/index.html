@@ -219,19 +219,22 @@
 
         // Функция сброса игры
         function resetGame() {
-            // Начальная позиция — центр
-            snake = [
-                {x: 10, y: 10}
-            ];
-            generateFood();
-            dx = 0;
-            dy = 0;
-            score = 0;
-            newRecordShown = false;
-            document.getElementById('score').textContent = 'Счёт: 0';
-            document.getElementById('newRecord').style.display = 'none';
-            gameActive = true;
-        }
+            function resetGame() {
+    // Начальная позиция — центр
+    snake = [
+        {x: 10, y: 10}
+    ];
+    // Генерируем еду только если игра активна
+    if (gameActive) {
+        generateFood();
+    }
+    dx = 0;
+    dy = 0;
+    score = 0;
+    newRecordShown = false;
+    document.getElementById('score').textContent = 'Счёт: 0';
+    document.getElementById('newRecord').style.display = 'none';
+}
 
         // Генерируем еду в свободной клетке
         function generateFood() {
@@ -413,7 +416,7 @@
             ctx.fillRect(centerX - 2, food.y * gridSize, 4, 6);
         }
 
-      function moveSnake() {
+function moveSnake() {
     if (!gameActive) return;
 
     let head = {x: snake[0].x + dx, y: snake[0].y + dy};
@@ -448,15 +451,17 @@
                 document.getElementById('newRecord').style.display = 'block';
                 newRecordShown = true;
             }
-        }
 
-        // Создаём новую еду
-        generateFood();
+            // Создаём новую еду
+            generateFood();
+            // Не удаляем хвост, если съели еду
+        } else {
+            snake.pop(); // Удаляем хвост, если не съели еду
+        }
     } else {
-        snake.pop();
+        snake.pop(); // Удаляем хвост, если не съели еду
     }
 }
-
         function gameLoop(currentTime) {
             window.requestAnimationFrame(gameLoop);
 
@@ -579,5 +584,6 @@
     </script>
 </body>
 </html>
+
 
 
