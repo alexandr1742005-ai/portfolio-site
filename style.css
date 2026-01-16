@@ -515,3 +515,13 @@ footer {
     text-align: center;
 }
 
+/* Цвет ссылки "Смотреть проекты" */
+.projects-content a {
+    color: #667eea !important;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.projects-content a:hover {
+    text-decoration: underline;
+}
